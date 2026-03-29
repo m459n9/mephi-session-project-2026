@@ -1,0 +1,108 @@
+    1  hostnamectl set-hostname mephi-2026.domain.local
+    2  nmcli connection show
+    3  nmcli connection modify enp0s8 ipv4.addresses 192.168.1.100/24
+    4  nmcli connection modify enp0s8 ipv4.gateway 192.168.1.1
+    5  nmcli connection modify enp0s8 ipv4.dns 8.8.8.8
+    6  nmcli connection modify enp0s8 ipv4.method manual
+    7  nmcli connection up enp0s8
+    8  ping -c 8.8.8.8 > tmp/network_check.txt 2>&1
+    9  ping -c 8.8.8.8 > /tmp/network_check.txt 2>&1
+   10  ping -c 4 192.168.1.1 >> /tmp/network_check.txt 2>&1
+   11  nmcli connection modify enp0s8 ipv4.method auto
+   12  nmcli connection up enp0s8
+   13  dnf install -y nginx tcpdump libcap-ng-utils policycoreutils-python-utils curl
+   14  echo "nameserver 8.8.8.8" > /etc/resolv.conf
+   15  dnf install -y nginx tcpdump libcap-ng-utils policycoreutils-python-utils curl
+   16  ip addr show enp0s8
+   17  ping -c 2 8.8.8.8
+   18  nmcli connection modify enp0s8 ipv4.addresses "" ipv4.gateway "" ipv4.method auto
+   19  nmcli connection up enp0s8
+   20  ping -c 2 8.8.8.8
+   21  dnf install -y nginx tcpdump libcap-ng-utils policycoreutils-python-utils curl
+   22  dnf install -y nginx tcpdump libcap-ng-utils poilcycoreutils-python-utils curl
+   23  dnf download tcpdump --destdir=/tmp
+   24  rpm -Uvh --replacekgs /tmp/tcpdump-*.rpm
+   25  rpm -Uvh --replacepkgs /tmp/tcpdump-*.rpm
+   26  lsblk
+   27  echo -e "n\np\n1\n\n\nw" | fdisk /dev/sdb
+   28  mkfs.ext4 -L MEPHI_DATA /dev/sdb1
+   29  mkdir -p/data/mephi-web
+   30  mkdir -p /data/mephi-web
+   31  echo 'LABEL=MEPHI_DATA /data/mephi-web ext4 defaults 0 2' >> /etc/fstab
+   32  mount -a
+   33  systemctl enable --now nginx
+   34  joutrnalctl -u nginxg --since "5 minutes ago" > /tmp/nginx_recent_logs.txt
+   35  journalctl -u nginx --since "5 minutes ago" > /tmp/nginx_recent_logs.txt
+   36  useradd mephi-admin
+   37  echo 'P@ssw0rd2026' | paaswd --stdin mephi-admin
+   38  echo 'P@ssw0rd2026' | passwd --stdin mephi-admin
+   39  groupadd mephi-devs
+   40  usermod -aG mephi-devs mephi-admin
+   41  chown mephi-admin:mephi-devs /data/mephi-web
+   42  chmod 2775 /data/mephi-web
+   43  setenforce 1
+   44  semanage fcontext 'a 't httpd_sys_content_t "/data/mephi-web(/.*)?"
+   45  semanage fcontext -a -t httpd_sys_content_t "/data/mephi-web(/.*)?"
+   46  restorecon -Rv /data/mephi-web
+   47  chmod u-s /usr/sbin/tcpdumbp
+   48  chmod u-s /usr/sbin/tcpdump
+   49  setcap capt_net_raw, cap_net_admin+ep /usr/sbin/tcpdump
+   50  setcap capt_net_raw,cap_net_admin+ep /usr/sbin/tcpdump
+   51  which tcpdump
+   52  ls -la /usr/sbin/tcpdump
+   53  setcap 'cap_new_raw,cap_net_admin=ep' /usr/sbin/tcpdump
+   54  setcap 'cap_net_raw,cap_net_admin=ep' /usr/sbin/tcpdump
+   55  echo root > /etc/denied_users
+   56  sed -i '1a auth required pam_listfile.so item=user sense=deny file=/etc/denied_users onerr=succeed' /etc/pam.d/sshd
+   57  sed -i '1a auth required pam_listfile.so item=user sense=deny file=/etc/denied_users onerr=succeed' /etc/pam.d/login
+   58  echo 'Hello from student: M2551108' > /data/mephi-web/index.html
+   59  cnown mephi-admin:mephi-devs /data/mephi-web/index.html
+   60  chown mephi-admin:mephi-devs /data/mephi-web/index.html
+   61  cat > /etc/nginx/conf.d/mephi.conf << 'EOF'
+server {
+listen 80 default_server;
+server_name _;
+root /data/mephi-web;
+index index.html;
+}
+EOF
+   62  grep -n "listen" /etc/nginx/nginx.conf
+   63  sed -i 's/listen.*80;/listen 8081;/' /etc/nginx/nginx.conf
+   64  systemctl restart nginx
+   65  grep -n "listen" /etc/nginx/nginx.conf
+   66  sed -i '39s/listen 8081;/listen [::]:8081;/' /etc/nginx/nginx.conf
+   67  grep -n "listen" /etc/nginx/nginx.conf
+   68  systemctl restart nginx
+   69  sed -i '38s/listen 8081;/listen 80;/' /etc/nginx/nginx.conf
+   70  sed -i '39s/listen \[::]:8081;/listen [::]:80;/' /etc/nginx/nginx.conf
+   71  grep -n "listen" /etc/nginx/nginx.conf
+   72  rm /etc/nginx/conf.d/mephi.conf
+   73  sed -i 's|/usr/share/nginx/html|/data/mephi-web|' /etc/nginx/nginx.conf
+   74  systemctl restart nginx
+   75  curl http://localhost
+   76  nmcli connection modify enp0s8 ipv4.addresses 192.168.1.100/24
+   77  nmcli connection modify enp0s8 ipv4.gateway 192.168.1.1
+   78  nmcli connection modify enp0s8 ipv4.dns 8.8.8.8
+   79  nmcli connection modify enp0s8 ipv4.method manual
+   80  nmcli connection up enp0s8
+   81  pinc -c 4 192.168.1.1 > ~/network_check.txt 2>&1
+   82  ping -c 4 192.168.1.1 > ~/network_check.txt 2>&1
+   83  ping -c 8.8.8.8 > ~/network_check.txt 2>&1
+   84  ping -c 4 8.8.8.8 > ~/network_check.txt 2>&1
+   85  jornalctl -u nginx --since "5 minutes ago" > ~/nginx_recent_logs.txt
+   86  journalctl -u nginx --since "5 minutes ago" > ~/nginx_recent_logs.txt
+   87  cp /etc/fstab ~/fstab.txt
+   88  getenforce > ~/selinux_status.txt
+   89  ls -Zd /data/mephi-web > ~/file_contexts.txt
+   90  getcap /usr/sbin/tcpdump > ~/tcpdump_capabilities.txt
+   91  stat /data/mephi-web > ~/permissions.txt
+   92  id mephi-admin > ~/users_groups.txt
+   93  getent group mephi-devs >> ~/users_groups.txt
+   94  curl -s http://localhost > ~/curl_output.txt 2>$1
+   95  curl -s http://localhost > ~/curl_output.txt 2>&1
+   96  cp /data/mephi-web/index.html ~/index.html
+   97  cp /tmp/tcpdump-*.rpm ~/
+   98  history > ~/project_history.txt
+   99  echo 'Hello from Student: M2551108' > /data/mephi-web/index.html
+  100  history
+  101  history | less
